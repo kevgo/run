@@ -17,7 +17,6 @@ Feature: support multiple stacks
         echo Makefile task running
       """
 
-  @this
   Scenario: list available tasks
     When executing "a"
     Then it prints:
@@ -30,3 +29,11 @@ Feature: support multiple stacks
 
         format  echo Node task running
       """
+
+  Scenario: run a task
+    When executing "a format"
+    Then it prints:
+      """
+      formatting
+      """
+    Then the exit code is 0
