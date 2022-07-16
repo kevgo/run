@@ -6,7 +6,7 @@ mod domain;
 mod stacks;
 mod strings;
 
-/// all commands that could be run
+/// all CLI commands that could be run
 enum Command {
     List,
     Run(String),
@@ -19,6 +19,7 @@ fn parse_cli_args(mut args: Args) -> Command {
     args.next(); // skip the binary name
     match args.next() {
         Some(cmd) if cmd == "-s" => Command::Setup,
+        Some(cmd) if cmd == "--setup" => Command::Setup,
         Some(cmd) if cmd == "--fish-completion" => Command::FishCompletion,
         Some(cmd) if cmd == "--print-fish-completions" => Command::FishCompletionSetup,
         Some(cmd) => Command::Run(cmd),

@@ -55,7 +55,12 @@ Feature: Node.JS with npm
       """
     And the exit code is 2
 
-  Scenario: setup
-    When executing "a -s"
+  Scenario Outline: setup
+    When executing "a <COMMAND>"
     Then the output contains "up to date"
     And the exit code is 0
+
+    Examples:
+      | COMMAND |
+      | -s      |
+      | --setup |
