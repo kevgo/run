@@ -72,3 +72,5 @@ test script again:
 ```
 a t
 ```
+
+Code bases can contain multiple stacks.

@@ -14,7 +14,7 @@ Feature: support multiple stacks
     And a Makefile with content:
       """
       format:  # formats the code
-        echo Makefile task running
+        @echo Makefile task running
       """
 
   Scenario: list available tasks
@@ -30,10 +30,15 @@ Feature: support multiple stacks
         format  echo Node task running
       """
 
-  Scenario: run a task
+  @this
+  Scenario: run a task that exists in two stacks
     When executing "a format"
     Then it prints:
       """
-      formatting
+      The task "format" exists in several stacks: Makefile and Node.js (npm).
+      Please prefix the stack name to specify the task.
+
+      mf for "Makefile format"
+      nf for "Node.js (npm) format"
       """
-    Then the exit code is 0
+    And the exit code is 1
