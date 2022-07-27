@@ -27,6 +27,12 @@ impl Stack for NodeNpmStack {
     fn tasks(&self) -> &Vec<Task> {
         &self.tasks
     }
+
+    fn update(&self) -> Option<Command> {
+        let mut command = Command::new("npx");
+        command.args(vec!["run", "npm-check-updates"]);
+        Some(command)
+    }
 }
 
 #[derive(Deserialize)]

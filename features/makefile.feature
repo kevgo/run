@@ -82,3 +82,11 @@ Feature: Makefiles
       Warning: I don't know how to set up this workspace
       """
     And the exit code is 1
+
+  Scenario: update
+    When executing "a -u"
+    Then it prints:
+      """
+      Warning: I don't know how to upgrade up this workspace
+      """
+    And the exit code is 1

@@ -15,6 +15,9 @@ pub trait Stack: Display {
     fn task_with_name(&self, name: &str) -> Option<&Task> {
         self.tasks().iter().find(|task| task.name == name)
     }
+
+    /// provides the command to update this stack to the latest version (dependencies)
+    fn update(&self) -> Option<Command>;
 }
 
 pub type Stacks = Vec<Box<dyn Stack>>;

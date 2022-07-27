@@ -24,6 +24,10 @@ impl Stack for MakefileStack {
     fn tasks(&self) -> &Vec<Task> {
         &self.tasks
     }
+
+    fn update(&self) -> Option<Command> {
+        None
+    }
 }
 
 pub fn scan(stacks: &mut Stacks) {

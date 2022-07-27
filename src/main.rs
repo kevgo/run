@@ -13,6 +13,7 @@ enum Command {
     Setup,
     FishCompletionSetup,
     FishCompletion,
+    Update,
 }
 
 fn parse_cli_args(mut args: Args) -> Command {
@@ -20,6 +21,8 @@ fn parse_cli_args(mut args: Args) -> Command {
     match args.next() {
         Some(cmd) if cmd == "-s" => Command::Setup,
         Some(cmd) if cmd == "--setup" => Command::Setup,
+        Some(cmd) if cmd == "-u" => Command::Update,
+        Some(cmd) if cmd == "--update" => Command::Update,
         Some(cmd) if cmd == "--fish-completion" => Command::FishCompletion,
         Some(cmd) if cmd == "--print-fish-completions" => Command::FishCompletionSetup,
         Some(cmd) => Command::Run(cmd),
@@ -40,6 +43,7 @@ fn execute(command: Command) -> Result<Outcome, Outcome> {
         Command::Setup => commands::setup(load_workspace()?),
         Command::FishCompletionSetup => commands::completions::fish::print(),
         Command::FishCompletion => commands::completions::fish::tasks(load_workspace()?),
+        Command::Update => commands::update(load_workspace()?),
     })
 }
 
