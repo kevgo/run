@@ -17,6 +17,8 @@ Currently supported stacks:
 - [Node.js](https://nodejs.org) using [npm](https://github.com/npm/cli)
 - [Node.js](https://nodejs.org) using [yarn](https://yarnpkg.com)
 
+[![CI](https://github.com/kevgo/atalanta/actions/workflows/ci.yml/badge.svg)](https://github.com/kevgo/atalanta/actions/workflows/ci.yml)
+
 ## Installation
 
 Install [Rust](https://www.rust-lang.org) via [RustUp](https://rustup.rs). Then
